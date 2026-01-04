@@ -1,4 +1,9 @@
-require('dotenv').config();
+try {
+    require('dotenv').config();
+} catch (error) {
+    // dotenv is optional in production where env vars are set securely
+    console.log('dotenv not found, relying on system environment variables');
+}
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
